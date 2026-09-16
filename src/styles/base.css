@@ -1,0 +1,136 @@
+:root {
+  --paper: #ffffff;
+  --sand: #f4efe8;
+  --stone: #d4c4b0;
+  --mist: #fbf8f4;
+  --charcoal: #2b2926;
+  --ink: #3f3b36;
+  --mute: #6f6a63;
+  --water: #148742;
+  --water-deep: #2c4349;
+  --ripple: rgba(63, 92, 99, 0.16);
+  --error: #8f4e3a;
+  --radius-btn: 8px;
+  --radius-card: 12px;
+  --max: 1140px;
+  --max-hero: 1240px;
+  --header-h: 72px;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-mark: "Cinzel", "Times New Roman", serif;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
+  --space-7: 128px;
+  --shadow: 0 8px 24px rgba(43, 41, 38, 0.06);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--water);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--ripple);
+  color: var(--charcoal);
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 100;
+  background: var(--charcoal);
+  color: var(--mist);
+  padding: 8px 12px;
+  border-radius: var(--radius-btn);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
