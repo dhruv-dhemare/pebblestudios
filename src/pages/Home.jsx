@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RippleMark from "../components/RippleMark.jsx";
+import PebbleStack from "../components/PebbleStack.jsx";
 import WorkCard from "../components/WorkCard.jsx";
 import BookingForm from "../components/BookingForm.jsx";
 import { projects } from "../data/work.js";
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <RippleMark />
+            <PebbleStack />
           </div>
         </div>
       </section>

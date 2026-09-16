@@ -5,7 +5,7 @@ export default function About() {
   return (
     <main id="main">
       <div className="wrap page-hero">
-        <p className="eyebrow">Studio</p>
+        <p className="eyebrow">About</p>
         <h1 className="display h1">{site.name}</h1>
         <p className="lead">
           A web studio in Pune. We design and launch clear websites for local businesses.

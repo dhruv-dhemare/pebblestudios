@@ -2,17 +2,17 @@ export const site = {
   name: "Pebble Studios",
   tagline: "Create a presence that ripples.",
   city: "Pune, India",
-  email: "hello@pebblestudios.com",
-  phoneDisplay: "+91 00000 00000",
-  phoneTel: "+910000000000",
-  whatsapp: "910000000000",
+  email: "pebblestudios.dev@gmail.com",
+  phoneDisplay: "+91 70209 61222",
+  phoneTel: "+917020961222",
+  whatsapp: "917020961222",
   aftercare: "Two weeks of tweaks after launch",
 };
 
 export const nav = [
+  { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export function whatsappUrl(message) {

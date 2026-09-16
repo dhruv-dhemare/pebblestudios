@@ -14,7 +14,7 @@ export default function Header() {
     <header className="header">
       <div className="wrap header-inner">
         <Link className="wordmark" to="/" aria-label={site.name}>
-          <img src="/logo.png" alt={site.name} className="nav-logo" />
+          <img src="/logo1.png" alt={site.name} className="nav-logo" />
         </Link>
         <nav className="nav-desktop" aria-label="Primary">
           {nav.map((item) => (
