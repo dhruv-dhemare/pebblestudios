@@ -57,17 +57,17 @@ export default function Home() {
             <PebbleStack />
           </div>
         </div>
+        <div className="proof" aria-label="Studio facts">
+          <ul className="wrap proof-list">
+            <li>Pune-based</li>
+            <li>Available across India</li>
+            <li>Custom Websites</li>
+            <li>Built with intent</li>
+            {/* <li>Two weeks of support after launch</li> */}
+          </ul>
+        </div>
       </section>
 
-      <section className="proof" aria-label="Studio facts">
-        <ul className="wrap proof-list">
-          <li>Pune-based</li>
-          <li>Available across India</li>
-          <li>Custom Websites</li>
-          <li>Built with intent</li>
-          {/* <li>Two weeks of support after launch</li> */}
-        </ul>
-      </section>
 
       <section className="section">
         <div className="wrap">
