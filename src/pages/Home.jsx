@@ -9,22 +9,22 @@ const steps = [
   {
     n: "01",
     title: "Call",
-    body: "You tell us what the business is. We tell you if we’re a fit.",
+    body: "Tell us what you need. We'll take it from there.",
   },
   {
     n: "02",
     title: "Shape",
-    body: "Structure and look, in the open. No surprise reveal at the end.",
+    body: "We build the direction with you, not behind the scenes.",
   },
   {
     n: "03",
     title: "Build & launch",
-    body: "We make the site and handle hosting.",
+    body: "We build the site and take care of hosting, too.",
   },
   {
     n: "04",
     title: "After",
-    body: "Two weeks of tweaks. You still have phone and email.",
+    body: "Two weeks of support after launch, whenever you need us.",
   },
 ];
 
@@ -35,10 +35,11 @@ export default function Home() {
         <div className="wrap-hero hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">{site.name}</p>
-            <h1 className="display h1">A site that looks considered — and makes sense.</h1>
+            <h1 className="display h1">
+              Building websites that make businesses sta<span className="accent-underline">nd out</span>
+            </h1>
             <p className="lead">
-              We design and launch websites for local businesses. Hosting is handled.
-              The details we settle on a call.
+              A well-made website can be the first step toward being noticed, remembered, and chosen. We build that first impression for you.
             </p>
             <p className="pebble-line">
               {site.name} — {site.tagline}
@@ -60,11 +61,11 @@ export default function Home() {
 
       <section className="proof" aria-label="Studio facts">
         <ul className="wrap proof-list">
-          <li>Pune</li>
-          <li>India-wide</li>
-          <li>In person or remote</li>
-          <li>Hosting handled</li>
-          <li>Tweaks for two weeks after launch</li>
+          <li>Pune-based</li>
+          <li>Available across India</li>
+          <li>Custom Websites</li>
+          <li>Built with intent</li>
+          {/* <li>Two weeks of support after launch</li> */}
         </ul>
       </section>
 
@@ -72,10 +73,9 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <p className="eyebrow">Work</p>
-            <h2 className="display h2">Selected work</h2>
+            <h2 className="display h2">Built by Pebble</h2>
             <p className="lead mute">
-              Concept pieces for a cafe, a clinic, and a salon. Not client sites — studio
-              work, so you can see how we think.
+              A look at what we can build for your business, designed around what you actually need.
             </p>
           </div>
           <div className="work-grid">
