@@ -1,0 +1,530 @@
+/* =====================================================
+   PAGE
+===================================================== */
+
+.hero-page {
+  width: 100vw;
+  min-height: 100vh;
+
+  background: #f6f5f1;
+  color: #18191c;
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.topbar {
+  width: min(68rem, 88vw);
+  height: 9vh;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+  justify-self: start;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: #18191c;
+
+  line-height: 1;
+}
+
+.brand-logo {
+  display: block;
+  width: clamp(7.5rem, 6.5vw, 10rem);
+  height: auto;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(2rem, 3vw, 3.8rem);
+}
+
+.nav-item {
+  position: relative;
+
+  padding: 0.7rem 0;
+
+  color: #656565;
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 450;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #18191c;
+}
+
+
+/* =====================================================
+   BUTTON BASE
+===================================================== */
+
+button {
+  font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primary-btn {
+  background: #18191c;
+  color: #ffffff;
+
+  border-radius: 0.75rem;
+}
+
+.primary-btn:hover {
+  transform: translateY(-0.12rem);
+}
+
+
+/* =====================================================
+   NAV BUTTON
+===================================================== */
+
+.nav-button {
+  justify-self: end;
+
+  padding: 0.95rem 1.35rem;
+
+  min-width: 7.4rem;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+  width: min(64rem, 90vw);
+
+  margin: 0 auto;
+
+  padding-top: 12vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   HERO TITLE
+===================================================== */
+
+.hero-title {
+  width: 100%;
+
+  margin: 0;
+
+  color: #18191c;
+
+  font-size: clamp(2.7rem, 3.87vw, 4.14rem);
+  font-weight: 500;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.2rem;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-title-line--highlight {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.highlighted-word {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-title-word {
+  display: inline-block;
+  position: relative;
+}
+
+.highlighted-word--underline {
+  display: inline-block;
+  position: relative;
+}
+
+
+/* =====================================================
+   HERO PARAGRAPH
+===================================================== */
+
+.hero-copy {
+  width: min(46rem, 80vw);
+
+  margin: 3.1rem auto 0;
+
+  color: #6c6c6c;
+
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  letter-spacing: -0.015rem;
+}
+
+
+/* =====================================================
+   CTA BUTTONS
+===================================================== */
+
+.cta-row {
+  margin-top: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.55rem;
+}
+
+.hero-primary {
+  padding: 0.9rem 1.2rem;
+
+  border-radius: 0.7rem;
+}
+
+.secondary-btn {
+  padding: 0.86rem 1.15rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.75rem;
+
+  background: transparent;
+
+  color: #18191c;
+
+  border: 0.0625rem solid #dad9d5;
+  border-radius: 0.7rem;
+}
+
+.secondary-btn:hover {
+  background: #ffffff;
+
+  border-color: #c4c3bf;
+
+  transform: translateY(-0.12rem);
+}
+
+.arrow {
+  display: inline-flex;
+
+  font-size: 1.25rem;
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+.secondary-btn:hover .arrow {
+  transform: translateX(0.2rem);
+}
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.marquee-wrap {
+  width: 100%;
+  margin-top: 2.8rem;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding: 0.9rem 0;
+  min-width: max-content;
+  animation: marquee 18s linear infinite;
+  margin-top: 0.5rem;
+}
+
+.marquee-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d1d1d;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.marquee-tag::before {
+  content: "•";
+  color: rgba(24, 25, 28, 0.7);
+  font-size: 1.1rem;
+  line-height: 1;
+  margin-right: 2.4rem;
+}
+
+.marquee-tag:first-child::before {
+  content: none;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =====================================================
+   MEDIUM SCREENS
+===================================================== */
+
+@media (max-width: 64rem) {
+
+  .topbar {
+    width: 92vw;
+  }
+
+  .main-nav {
+    gap: 1.6rem;
+  }
+
+  .hero-section {
+    padding-top: 13vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 5vw, 4rem);
+
+    letter-spacing: -0.15rem;
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 52rem) {
+
+  .topbar {
+    grid-template-columns: 1fr auto;
+
+    height: auto;
+
+    padding-top: 2rem;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .hero-section {
+    width: 92vw;
+
+    padding-top: 16vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 7vw, 3.6rem);
+
+    line-height: 1;
+
+    letter-spacing: -0.12rem;
+  }
+
+  .hero-copy {
+    width: min(38rem, 86vw);
+
+    margin-top: 2.3rem;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 35rem) {
+  .topbar {
+    width: 90vw;
+    padding-top: 1.25rem;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+  }
+
+  .brand-logo {
+    width: clamp(5.2rem, 22vw, 6.5rem);
+  }
+
+  .nav-button {
+    min-width: auto;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .hero-section {
+    width: 90vw;
+    padding-top: 14vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2.3rem, 11vw, 3.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.08rem;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .hero-title-line {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-title-line--highlight {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-copy {
+    width: 100%;
+    margin-top: 1.5rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .cta-row {
+    width: 100%;
+    margin-top: 1.5rem;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .hero-primary,
+  .secondary-btn {
+    width: 50%;
+    justify-content: center;
+    margin: 0.5vh auto;
+  }
+
+  .hero-primary {
+    padding: 0.95rem 1.1rem;
+  }
+
+  .secondary-btn {
+    padding: 0.9rem 1.1rem;
+  }
+
+  .marquee-wrap {
+    margin-top: 2rem;
+  }
+
+  .marquee-track {
+    gap: 1.4rem;
+    padding: 0.75rem 0;
+    animation-duration: 16s;
+  }
+
+  .marquee-tag {
+    font-size: 0.7rem;
+  }
+
+  .marquee-tag::before {
+    margin-right: 1.4rem;
+  }
+}
+
+.draw-underline {
+  position: absolute;
+  left: 0;
+  bottom: -0.06em;
+  width: 100%;
+  height: 0.12em;
+  background: #c96f4a;
+  border-radius: 999rem;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: drawUnderline 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes drawUnderline {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import PebbleStack from "../components/PebbleStack.jsx";
 import WorkCard from "../components/WorkCard.jsx";
 import BookingForm from "../components/BookingForm.jsx";
 import { projects } from "../data/work.js";
@@ -32,7 +31,7 @@ export default function Home() {
   return (
     <main id="main" className="home">
       <section className="hero" style={{ height: "100vh" }}>
-        <div className="wrap-hero hero-grid">
+        <div className="wrap-hero">
           <div className="hero-copy">
             <p className="eyebrow">{site.name}</p>
             <h1 className="display h1">
@@ -52,9 +51,6 @@ export default function Home() {
                 WhatsApp
               </a>
             </div>
-          </div>
-          <div className="hero-visual">
-            <PebbleStack />
           </div>
         </div>
         <div className="proof" aria-label="Studio facts" style={{ paddingTop: "5vh" }}>
