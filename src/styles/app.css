@@ -107,6 +107,39 @@
   border-bottom: 0.0625rem solid color-mix(in srgb, var(--stone) 70%, transparent);
 }
 
+/* Smooth scrolling and snap sections */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  /* enable scroll‑snap on the page */
+}
+
+/* 
+#main.home {
+  height: 100vh;
+} */
+
+/* Snap alignment for sections (including hero) */
+.hero,
+.section {
+  scroll-snap-align: start;
+}
+
+/* Ensure each section snaps to the start */
+.home .section {
+  scroll-snap-align: start;
+}
+
+
+.home .section {
+  scroll-snap-align: start;
+}
+
+.home .hero {
+  scroll-snap-align: start;
+}
+
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -269,6 +302,8 @@
 
 .hero {
   position: relative;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   min-height: calc(100vh - var(--header-h));
   min-height: calc(100dvh - var(--header-h));
   display: flex;
@@ -315,7 +350,7 @@
 
 @media (min-width: 64rem) {
   .hero {
-    padding: 1.5rem 0 2.5rem;
+    padding: 6rem 0 2.5rem;
   }
 
   .hero-grid {
@@ -706,6 +741,8 @@
 .footer {
   padding: 2.5rem 0 calc(2rem + env(safe-area-inset-bottom));
   border-top: 0.0625rem solid var(--stone);
+  scroll-snap-align: start;
+  /* allow footer to be snapped into view */
 }
 
 .footer-inner {

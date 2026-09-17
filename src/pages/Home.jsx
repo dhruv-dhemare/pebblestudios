@@ -30,8 +30,8 @@ const steps = [
 
 export default function Home() {
   return (
-    <main id="main">
-      <section className="hero">
+    <main id="main" className="home">
+      <section className="hero" style={{ height: "100vh" }}>
         <div className="wrap-hero hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">{site.name}</p>
@@ -57,7 +57,7 @@ export default function Home() {
             <PebbleStack />
           </div>
         </div>
-        <div className="proof" aria-label="Studio facts">
+        <div className="proof" aria-label="Studio facts" style={{ paddingTop: "5vh" }}>
           <ul className="wrap proof-list">
             <li>Pune-based</li>
             <li>Available across India</li>
@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
 
-      <section className="section">
+      <section className="section" style={{ height: "100vh" }}>
         <div className="wrap">
           <div className="section-head">
             <p className="eyebrow">Work</p>
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" style={{ height: "100vh" }}>
         <div className="wrap split">
           <div>
             <p className="eyebrow">The work</p>

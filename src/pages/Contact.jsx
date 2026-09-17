@@ -4,7 +4,7 @@ import { site, whatsappUrl } from "../data/site.js";
 export default function Contact() {
   return (
     <main id="main">
-      <div className="wrap close-grid" style={{ padding: "48px 0 80px" }}>
+      <section className="section"><div className="wrap close-grid" style={{ padding: "15vh" }}>
         <div>
           <p className="eyebrow">Contact</p>
           <h1 className="display h1">Book a call</h1>
@@ -30,6 +30,7 @@ export default function Contact() {
         </div>
         <BookingForm />
       </div>
+      </section>
     </main>
   );
 }
