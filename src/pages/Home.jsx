@@ -30,15 +30,15 @@ const steps = [
 export default function Home() {
   return (
     <main id="main" className="home">
-      <section className="hero" style={{ height: "100vh" }}>
+      <section className="hero">
         <div className="wrap-hero">
           <div className="hero-copy">
-            <p className="eyebrow">{site.name}</p>
-            <h1 className="display h1">
-              Building websites that make businesses sta<span className="accent-underline">nd out</span>
+            {/* <p className="eyebrow">{site.name}</p> */}
+            <h1 className="display h1 hero-title">
+              Building websites that<br />make businesses <span className="accent-underline">stand out</span>
             </h1>
             <p className="lead">
-              A well-made website can be the first step toward being noticed, remembered, and chosen. We build that first impression for you.
+              A well-made website can be the first step toward being<br /> noticed, remembered, and chosen. We build that first impression for you.
             </p>
             <p className="pebble-line">
               {site.name} — {site.tagline}
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="proof" aria-label="Studio facts" style={{ paddingTop: "5vh" }}>
+        <div className="proof" aria-label="Studio facts">
           <ul className="wrap proof-list">
             <li>Pune-based</li>
             <li>Available across India</li>

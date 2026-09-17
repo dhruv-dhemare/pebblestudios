@@ -10,6 +10,12 @@ export default function Header() {
     setOpen(false);
   }, [location.pathname]);
 
+  const mobileNavLinks = [
+    { to: "/work", label: "Work" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+  ];
+
   return (
     <header className="header">
       <div className="wrap header-inner">
@@ -24,10 +30,10 @@ export default function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <a className="btn btn-ghost" href={whatsappUrl()}>
+          <a className="btn btn-ghost header-cta header-whatsapp" href={whatsappUrl()}>
             WhatsApp
           </a>
-          <Link className="btn btn-primary" to="/contact">
+          <Link className="btn btn-primary header-cta" to="/contact">
             Book a call
           </Link>
           <button
@@ -45,12 +51,11 @@ export default function Header() {
         </div>
       </div>
       <nav id="mobile-nav" className={`wrap nav-panel${open ? " open" : ""}`} aria-label="Mobile">
-        {nav.map((item) => (
+        {mobileNavLinks.map((item) => (
           <NavLink key={item.to} to={item.to}>
             {item.label}
           </NavLink>
         ))}
-        <a href={whatsappUrl()}>WhatsApp</a>
       </nav>
     </header>
   );

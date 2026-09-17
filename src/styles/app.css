@@ -59,20 +59,51 @@
   line-height: 1.05;
 }
 
+.hero-title {
+  animation: heroTitleFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
 .accent-underline {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .accent-underline::after {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
   bottom: -0.3125rem;
+  width: 100%;
   height: 0.3125rem;
   background: #C96F4A;
   border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: drawUnderline 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
+  will-change: transform;
+}
+
+@keyframes heroTitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawUnderline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .h2 {
@@ -193,6 +224,10 @@ html {
   color: var(--water);
 }
 
+.header-actions .header-cta {
+  display: none;
+}
+
 .menu-btn {
   width: 2.75rem;
   height: 2.75rem;
@@ -236,6 +271,10 @@ html {
 @media (min-width: 64rem) {
   .nav-desktop {
     display: flex;
+  }
+
+  .header-actions .header-cta {
+    display: inline-flex;
   }
 
   .menu-btn,
@@ -287,12 +326,15 @@ html {
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 40rem) {
   .cta-row {
     flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
 
   .cta-row .btn {
@@ -308,12 +350,32 @@ html {
   min-height: calc(100dvh - var(--header-h));
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem 0 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1.25rem 2rem;
   box-sizing: border-box;
-  overflow: hidden;
-  margin-left: 7.5vw;
-  margin-right: 7.5vw;
+  text-align: center;
+}
+
+.wrap-hero {
+  width: 100%;
+  max-width: var(--max-hero);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 50rem;
+  width: 100%;
+  margin-inline: auto;
 }
 
 .hero-copy .eyebrow {
@@ -322,6 +384,12 @@ html {
 
 .hero-copy .h1 {
   margin-bottom: 1.25rem;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.hero-copy .lead {
+  margin-inline: auto;
 }
 
 .pebble-line {
@@ -329,11 +397,12 @@ html {
   font-size: 0.875rem;
   color: var(--mute);
   font-style: italic;
+  text-align: center;
 }
 
 @media (min-width: 64rem) {
   .hero {
-    padding: 6rem 0 2.5rem;
+    padding: 3.5rem 2rem 2.5rem;
   }
 }
 
@@ -380,10 +449,11 @@ html {
 }
 
 .proof {
-  padding: 1rem 0 0.5rem;
+  padding: 1.5rem 0 0.5rem;
+  width: 100%;
 }
 
-@media (max-width: 56.25rem) {
+@media (max-width: 48rem) {
   .proof {
     display: none;
   }
@@ -394,7 +464,7 @@ html {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.3125rem 2.5rem;
+  gap: 0.75rem 2rem;
   max-width: var(--max);
   padding: 0 0.625rem;
   margin-inline: auto;
@@ -408,13 +478,13 @@ html {
 .proof-list li {
   display: flex;
   align-items: center;
+  gap: 2rem;
 }
 
 .proof-list li:not(:last-child)::after {
   content: "";
   width: 0.3125rem;
   height: 0.3125rem;
-  margin-left: 3.75rem;
   border-radius: 50%;
   background: var(--water);
   opacity: 0.55;
