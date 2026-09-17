@@ -8,7 +8,7 @@ export default function About() {
         <p className="eyebrow">About</p>
         <h1 className="display h1">{site.name}</h1>
         <p className="lead">
-          A web studio in Pune. We design and launch clear websites for local businesses.
+          A Pune-based web studio helping local businesses build a stronger presence online.
         </p>
       </div>
       <div className="wrap legal" style={{ paddingTop: 0 }}>
