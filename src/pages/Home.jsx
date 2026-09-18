@@ -195,7 +195,9 @@ function WhyPebbleSection() {
             <h2 className="display h2">Websites that explain themselves.</h2>
             {/* <p className="lead mute">We make it obvious what you do, who it is for, and how someone can take the next step.</p> */}
           </article>
-          <div className="why-pebble-image" aria-label="Image placeholder" />
+          <div className="why-pebble-image">
+            <img src="/img1.jpeg" alt="Pebble Studios" />
+          </div>
           <article className="why-pebble-card">
             <p className="why-pebble-kicker">Made for real businesses</p>
             <h2 className="display h2">Useful before it is impressive.</h2>
@@ -226,8 +228,176 @@ function WhyPebbleSection() {
   );
 }
 
-function FaqItem({ question, children, open, onOpen }) {
+function ProcessSection() {
+  const processRef = useRef(null);
+  const [progress, setProgress] = useState(0);
 
+  useEffect(() => {
+    let frameId = 0;
+
+    const updateProgress = () => {
+      frameId = 0;
+      const process = processRef.current;
+      if (!process) return;
+
+      const distance = process.offsetHeight - window.innerHeight;
+      const nextProgress =
+        distance > 0 ? (window.scrollY - process.offsetTop) / distance : 0;
+
+      setProgress(Math.min(1, Math.max(0, nextProgress)));
+    };
+
+    const handleScroll = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(updateProgress);
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateProgress);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
+  const activeStep = progress * (steps.length - 1);
+
+  return (
+    <div className="process-scroll" ref={processRef}>
+      <section className="process-section">
+        <div className="wrap process-layout">
+          <div className="process-intro">
+            <p className="eyebrow">Process</p>
+            <h2 className="display h1">
+              How it <br className="process-title-break" />
+              works
+            </h2>
+            <p className="process-tagline">
+              A clear path from first conversation to launch.
+            </p>
+          </div>
+          <div className="process-stage" aria-label="How the process works">
+            {steps.map((step, index) => {
+              const distance = index - activeStep;
+              const distanceFromCenter = Math.abs(distance);
+              const visible = distanceFromCenter <= 1.05;
+
+              return (
+                <article
+                  className="process-step"
+                  key={step.n}
+                  aria-hidden={!visible}
+                  style={{
+                    "--step-position": distance,
+                    "--step-opacity": visible
+                      ? Math.max(0, 1 - distanceFromCenter * 0.42)
+                      : 0,
+                    "--step-scale": 1 - Math.min(distanceFromCenter, 1) * 0.06,
+                    zIndex: Math.round(10 - distanceFromCenter * 5),
+                  }}
+                >
+                  <span className="step-num">{step.n}</span>
+                  <h3 className="h3">{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function StudioSection() {
+  const studioScrollRef = useRef(null);
+  const [paragraphProgress, setParagraphProgress] = useState([]);
+  const [studioProgress, setStudioProgress] = useState(0);
+
+  useEffect(() => {
+    let frameId = 0;
+
+    const updateFocus = () => {
+      frameId = 0;
+      const studioScroll = studioScrollRef.current;
+      if (!studioScroll) return;
+
+      const distance = studioScroll.offsetHeight - window.innerHeight;
+      const scrollProgress =
+        distance > 0 ? (window.scrollY - studioScroll.offsetTop) / distance : 0;
+      const progress = Math.max(0, Math.min(1, scrollProgress));
+      const revealProgress = Math.max(0, Math.min(1, (progress - 0.12) / 0.82));
+
+      setStudioProgress(progress);
+      setParagraphProgress([revealProgress]);
+    };
+
+    const handleScroll = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(updateFocus);
+    };
+
+    updateFocus();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateFocus);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateFocus);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
+  const renderStudioParagraph = (text, index) => {
+    const words = text.split(" ");
+    const progress = paragraphProgress[index] || 0;
+    const revealedWords = Math.floor(progress * words.length);
+
+    return (
+      <p className="lead studio-copy-text">
+        {words.map((word, wordIndex) => (
+          <span
+            className="studio-word"
+            key={`${index}-${wordIndex}`}
+            style={{ opacity: wordIndex < revealedWords ? 1 : 0.22 }}
+          >
+            {word}
+            {wordIndex < words.length - 1 ? " " : ""}
+          </span>
+        ))}
+      </p>
+    );
+  };
+
+  return (
+    <div className="studio-scroll" ref={studioScrollRef}>
+      <section className="studio-band studio-section">
+        <div
+          className="wrap studio-copy"
+          style={{
+            transform: `translateY(${Math.max(0, (1 - Math.min(1, studioProgress / 0.26)) * 18)}vh)`,
+          }}
+        >
+          {/* <p className="eyebrow">Studio</p> */}
+          <h2 className="display h1" style={{ marginTop: "1rem" }}>A small studio in Pune</h2>
+          {renderStudioParagraph(
+            "Pebble Studios builds thoughtful websites for businesses that want to look clear, credible, and easy to trust online. We work with businesses across India, creating websites that feel true to what they do and where they want to go. A well-made website can do more than look good — it can explain, build trust, and help your business grow. That’s the idea behind Pebble.",
+            0,
+          )}
+          <p className="pebble-line">{site.tagline}</p>
+          <p className="studio-link">
+            <Link className="text-link" to="/about">
+              About the studio
+            </Link>
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FaqItem({ question, children, open, onOpen }) {
   const isDesktop = () => window.matchMedia("(min-width: 64rem)").matches;
 
   return (
@@ -266,53 +436,11 @@ export default function Home() {
 
       <WhyPebbleSection />
 
-      <section className="section">
-        <div className="wrap">
-          <div className="section-head">
-            <p className="eyebrow">Process</p>
-            <h2 className="display h2">How it works</h2>
-          </div>
-          <div className="steps">
-            {steps.map((step) => (
-              <article className="step" key={step.n}>
-                <span className="step-num">{step.n}</span>
-                <h3 className="h3">{step.title}</h3>
-                <p>{step.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="cta-row">
-            <Link className="btn btn-primary" to="/contact">
-              Book a call
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ProcessSection />
 
-      <section className="section studio-band">
-        <div className="wrap">
-          <p className="eyebrow">Studio</p>
-          <h2 className="display h2">A small studio in Pune</h2>
-          <p className="lead" style={{ marginTop: 16 }}>
-            Pebble Studios builds websites for businesses that need to look
-            clear and trustworthy online. We work in Pune in person, and with
-            clients across India remotely.
-          </p>
-          <p className="lead" style={{ marginTop: 16 }}>
-            A small, well-made site can do more than it looks — more
-            understanding, more contact, more room to grow. That’s the idea in
-            the name.
-          </p>
-          <p className="pebble-line">{site.tagline}</p>
-          <p style={{ marginTop: 24 }}>
-            <Link className="text-link" to="/about">
-              About the studio
-            </Link>
-          </p>
-        </div>
-      </section>
+      <StudioSection />
 
-      <section className="section" style={{ height: "100vh" }}>
+      <section className="section faq-section">
         <div className="wrap">
           <div className="section-head">
             <h2 className="display h2">Before you book</h2>

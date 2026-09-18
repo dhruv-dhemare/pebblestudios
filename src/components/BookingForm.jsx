@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { site, whatsappUrl } from "../data/site.js";
+import { whatsappUrl } from "../data/site.js";
 
 const minSlot = () => {
   const d = new Date();
@@ -10,9 +10,11 @@ const minSlot = () => {
 export default function BookingForm() {
   const [error, setError] = useState("");
   const [done, setDone] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
+    const form = event.currentTarget;
     const data = new FormData(event.currentTarget);
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
@@ -24,7 +26,37 @@ export default function BookingForm() {
     }
 
     setError("");
-    setDone({ name, phone, slot });
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1cbd70d8-5974-48ac-b9e7-721955956884",
+          subject: "New Pebble Studios booking request",
+          from_name: "Pebble Studios website",
+          name,
+          phone,
+          slot,
+        }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send the booking request.");
+      }
+
+      setDone({ name, phone, slot });
+      form.reset();
+    } catch (submitError) {
+      setError(submitError.message || "Unable to send the booking request. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (done) {
@@ -38,8 +70,7 @@ export default function BookingForm() {
       <div className="form-success">
         <h3 className="h3">We’ve got the slot.</h3>
         <p style={{ marginTop: 12 }}>
-          {done.name}, we’ll call {done.phone} at {when}. Until the number on this
-          site is yours, send the same note on WhatsApp so it isn’t lost.
+          {done.name}, your request for {when} has been sent. We’ll contact you at {done.phone}.
         </p>
         <p className="cta-row">
           <a className="btn btn-primary" href={whatsappUrl(message)}>
@@ -65,12 +96,9 @@ export default function BookingForm() {
         <input id="slot" name="slot" type="datetime-local" min={minSlot()} required />
       </div>
       {error ? <p className="form-error">{error}</p> : null}
-      <button className="btn btn-primary btn-full" type="submit">
-        Book a call
+      <button className="btn btn-primary btn-full" type="submit" disabled={submitting}>
+        {submitting ? "Sending..." : "Book a call"}
       </button>
-      {/* <p className="reassurance">
-        {site.city} · {site.phoneDisplay} · {site.email}
-      </p> */}
     </form>
   );
 }
