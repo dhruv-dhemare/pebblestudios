@@ -49,6 +49,7 @@ export default function About() {
         <div
           className={`about-gallery${hoveredImage === null ? "" : ` is-hovered hover-${hoveredImage}`}`}
           aria-label="Pebble Studios gallery"
+          onMouseLeave={() => setHoveredImage(null)}
         >
           {[0, 1, 2, 3].map((imageIndex) => (
             <div

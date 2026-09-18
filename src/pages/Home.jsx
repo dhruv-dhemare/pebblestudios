@@ -380,7 +380,7 @@ function StudioSection() {
           }}
         >
           {/* <p className="eyebrow">Studio</p> */}
-          <h2 className="display h1" style={{ marginTop: "1rem" }}>A small studio in Pune</h2>
+          {/* <h2 className="display h1" style={{ marginTop: "1rem" }}>An independent web studio</h2> */}
           {renderStudioParagraph(
             "Pebble Studios builds thoughtful websites for businesses that want to look clear, credible, and easy to trust online. We work with businesses across India, creating websites that feel true to what they do and where they want to go. A well-made website can do more than look good — it can explain, build trust, and help your business grow. That’s the idea behind Pebble.",
             0,
