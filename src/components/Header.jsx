@@ -11,9 +11,9 @@ export default function Header() {
   }, [location.pathname]);
 
   const mobileNavLinks = [
+    { to: "/", label: "Home" },
     { to: "/work", label: "Work" },
     { to: "/about", label: "About" },
-    { to: "/contact", label: "Contact" },
   ];
 
   return (
