@@ -230,6 +230,14 @@ html {
   padding: 0.5rem 0 1.5rem;
 }
 
+@media (max-width: 63.9375rem) {
+  .nav-panel.wrap {
+    width: 100%;
+    max-width: none;
+    padding-inline: 1rem;
+  }
+}
+
 .nav-panel.open {
   display: grid;
   gap: 0.5rem;
