@@ -59,7 +59,6 @@ export default function About() {
               <img src="/img1.jpeg" alt="" />
             </div>
           ))}
->>>>>>> 08c3105 (Final Ship)
         </div>
       </div>
     </main>
