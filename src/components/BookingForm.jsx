@@ -68,9 +68,9 @@ export default function BookingForm() {
       <button className="btn btn-primary btn-full" type="submit">
         Book a call
       </button>
-      <p className="reassurance">
+      {/* <p className="reassurance">
         {site.city} · {site.phoneDisplay} · {site.email}
-      </p>
+      </p> */}
     </form>
   );
 }

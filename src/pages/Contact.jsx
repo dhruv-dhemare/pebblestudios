@@ -4,7 +4,7 @@ import { site, whatsappUrl } from "../data/site.js";
 export default function Contact() {
   return (
     <main id="main">
-      <section className="section"><div className="wrap close-grid" style={{ padding: "15vh" }}>
+      <section className="section"><div className="wrap close-grid" style={{ padding: "6vh" }}>
         <div>
           <p className="eyebrow">Contact</p>
           <h1 className="display h1">Book a call</h1>
@@ -16,6 +16,9 @@ export default function Contact() {
             <br />
             <a className="text-link" href={`tel:${site.phoneTel}`}>
               {site.phoneDisplay}
+            </a>
+            <a className="text-link" href={`tel:${site.phoneTel}`}>
+              +91 75071 79098
             </a>
             <br />
             <a className="text-link" href={`mailto:${site.email}`}>

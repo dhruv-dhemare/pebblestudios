@@ -3,7 +3,7 @@ import { projects } from "../data/work.js";
 
 export default function Work() {
   return (
-    <main id="main" className="section" style={{ paddingTop: "16vh" }}>
+    <main id="main" className="section" style={{ paddingTop: "10vh" }}>
       <div className="wrap">
         <div className="page-hero" style={{ paddingTop: 0 }}>
           <p className="eyebrow">Portfolio</p>

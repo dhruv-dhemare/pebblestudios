@@ -3,7 +3,7 @@ import { site, whatsappUrl } from "../data/site.js";
 
 export default function About() {
   return (
-    <main id="main" className="section" style={{ paddingTop: "15vh" }}>
+    <main id="main" className="section" style={{ paddingTop: "10vh" }}>
       <div className="wrap page-hero" >
         <p className="eyebrow">About</p>
         <h1 className="display h1">{site.name}</h1>

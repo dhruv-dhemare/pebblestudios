@@ -26,6 +26,9 @@ export default function Footer() {
               <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
             </li>
             <li>
+              <a href={`tel:${site.phoneTel}`}>+91 75071 79098</a>
+            </li>
+            <li>
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
