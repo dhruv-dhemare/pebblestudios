@@ -3,32 +3,32 @@ import { site, whatsappUrl } from "../data/site.js";
 
 export default function About() {
   return (
-    <main id="main" className="section" style={{ paddingTop: "10vh" }}>
-      <div className="wrap page-hero" >
-        <p className="eyebrow">About</p>
+    <main id="main" className="about-page">
+      <div className="wrap page-hero">
+        {/* <p className="eyebrow">About</p> */}
         <h1 className="display h1">{site.name}</h1>
-        <p className="lead">
-          A Pune-based web studio helping local businesses build a stronger presence online.
-        </p>
       </div>
-      <div className="wrap legal" style={{ paddingTop: 0 }}>
+      <div className="wrap legal">
         <p>
-          Many businesses here still run on Instagram, WhatsApp, or an old page that
-          doesn’t explain anything. We make the first site that looks considered and makes
-          sense.
+          We started Pebble Studios with a simple belief: every business deserves an online presence that feels as real and considered as the business itself.
+          <br /><br />
+          Too many great businesses still rely only on Instagram, WhatsApp, word of mouth, or a website that no longer represents them. At the same time, the way people discover and trust businesses has changed. We look at websites, reviews, testimonials, and the way a brand presents itself online before deciding where to go or who to trust.
+          <br /><br />
+          We want to help change that.
         </p>
         <p>
-          We work with you on a call, we handle hosting, and we stay for two weeks after
-          go-live. India-wide — in person when it helps, remote when that’s easier.
+          We work with businesses of all sizes to build professional websites that are clear, thoughtful, and easy for people to trust. From the first conversation to launch, you stay involved — we share ideas, direction, and progress so the final website feels like your business, just presented better online.
         </p>
         <p>
+          We also handle the technical side, including hosting, launch, and post-launch tweaks. Our goal is simple: make the process easy, and build something you’re proud to put your name on.
+        </p>
+        <p>
+          Based in Pune, working with businesses across India.
+        </p>
+        <p className="pebble-line" style={{ marginTop: "1.5rem" }}>
           {site.name} — {site.tagline}
         </p>
-        <p>
-          Live on a Pebble address at no extra cost, or on your own domain. If you take a
-          domain, that domain is yours.
-        </p>
-        <div className="cta-row">
+        <div className="cta-row" style={{ marginTop: "2rem" }}>
           <Link className="btn btn-primary" to="/contact">
             Book a call
           </Link>
