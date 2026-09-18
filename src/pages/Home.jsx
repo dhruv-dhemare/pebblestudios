@@ -182,7 +182,7 @@ function WorkTransition() {
 
 function WhyPebbleSection() {
   return (
-    <section className="why-pebble section" style={{ height: "100vh" }}>
+    <section className="why-pebble section" style={{ minHeight: "100vh" }}>
       <div className="wrap">
         <div className="section-head why-pebble-head">
           <p className="eyebrow">Why Pebble</p>
