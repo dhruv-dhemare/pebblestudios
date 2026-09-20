@@ -25,15 +25,18 @@ export default function Project() {
           <p className="eyebrow">{project.label}</p>
           <h1 className="display h1">{project.name}</h1>
           <p className="lead">{project.summary}</p>
+          <a className="text-link project-live-button" href={project.url} target="_blank" rel="noreferrer">
+            Visit live website <span aria-hidden="true">↗</span>
+          </a>
         </header>
         <div className="project-stills">
           <div className="still still-wide">
             <SitePreview project={project} />
           </div>
           <div className="still" style={{ background: project.palette.bg, padding: 24 }}>
-            <p className="eyebrow">First screen</p>
+            <p className="eyebrow">The approach</p>
             <h2 className="h3" style={{ marginTop: 12 }}>
-              What you are, where you are, how to contact you.
+              Built around what visitors need to know and do.
             </h2>
             <p style={{ marginTop: 12 }}>{project.need}</p>
           </div>
@@ -48,10 +51,10 @@ export default function Project() {
             }}
           >
             <p className="eyebrow" style={{ color: "inherit", opacity: 0.7 }}>
-              Contact
+              Live website
             </p>
             <p className="h3" style={{ color: "inherit", marginTop: 8 }}>
-              Call, WhatsApp, or walk in — not buried in a menu.
+              A real, responsive experience — ready to explore.
             </p>
           </div>
         </div>
